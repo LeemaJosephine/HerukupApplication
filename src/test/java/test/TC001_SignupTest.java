@@ -1,5 +1,7 @@
 package test;
 
+import java.io.IOException;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -14,7 +16,7 @@ public class TC001_SignupTest extends ProjectSpecificationMethods{
 		sheetname="signup";
 	}
 	@Test(dataProvider = "readData")
-	public void signupTest(String firstName,String LastName, String email,String password,String testType, String expected) {
+	public void signupTest(String firstName,String LastName, String email,String password,String testType, String expected) throws IOException {
 		
 		HomePage obj = new HomePage(driver);
 		obj.clickSignUp()

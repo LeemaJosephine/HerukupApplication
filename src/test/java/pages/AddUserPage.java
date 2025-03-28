@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,18 +74,18 @@ public class AddUserPage extends ProjectSpecificationMethods{
 		
 	}
 	
-	public AddUserPage validateSignup(String testType, String expcted) {
+	public AddUserPage validateSignup(String testType, String expcted) throws IOException {
 		
 		if(testType.equalsIgnoreCase("ValidCredentials")) {
 			
 				String actual = contactList.getText();
+				screenshot(testType);
 				Assert.assertEquals(actual, expcted);	
-				
-			
 				
 		} else if(testType.equalsIgnoreCase("MailInUse")){
 			
 			String actual = error.getText();
+			screenshot(testType);
 			Assert.assertEquals(actual, expcted);
 			
 		}

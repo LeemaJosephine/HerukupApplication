@@ -9,10 +9,10 @@
     </classes>
   </test> <!-- Test -->
   
-   <test name="EdgeTest">
+ <!--    <test name="EdgeTest">
   <parameter name="browser" value="edge"></parameter>
     <classes>
       <class name="test.TC001_SignupTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test>  --> 
 </suite> <!-- Suite -->

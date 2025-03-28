@@ -1,12 +1,16 @@
 package utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -64,5 +68,14 @@ public class UtilityClass {
 		
 		book.close();
 		return data;
+	}
+	
+	public static String screenshot(String name) throws IOException {
+		
+		String path="C:\\Users\\Digital Suppliers\\second-workspace\\HerukupContactApp\\screenshot\\"+name+".png";
+		File src =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File dest = new File(path);
+		FileUtils.copyFile(src, dest);
+		return path;
 	}
 }
